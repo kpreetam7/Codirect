@@ -10,6 +10,7 @@ mongoose.connect("mongodb+srv://shreshth1234:shreshth1234@cluster0.m3big.mongodb
 
  var app = express();
  app.set('view engine','ejs');
+ app.use(express.static(__dirname+'/public'));
 
 app.use(bodyParser.urlencoded({extended: true}));
  app.use(require("express-session")({
