@@ -1,0 +1,252 @@
+.suli{
+    width: 78px;
+    padding: 4px;
+    margin: 4px;
+    /* position: relative; */
+    top: 10px;
+    right: 10px;
+    background-color: rgba(8, 9, 51, 0.87);
+}
+
+body{
+    /* background-image: url('C:/Users/dell/Dropbox/My PC (DESKTOP-CPFH5CQ)/Downloads/Relief map of India.jpg'); */
+    background-color: #d5d5d5;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+}
+.navbar {
+	background-color:  #0c2431;
+	padding: 1% 0;
+	font-size: 1.2em;
+}
+.navbar-brand {
+	min-height: 55px;
+	padding: 0 15px 5px;
+}
+.navbar-brand h2{
+	color: #FFF;
+}
+
+.navbar-default .navbar-nav li a {
+	color: #FFF;
+}
+.navbar-default .navbar-nav li a:hover {
+	color: #FFF;
+}
+.navbar-default .navbar-nav li a:active {
+	color: #FFF;
+}
+.centerText{
+    text-align: center
+}
+.topbar{
+    display:block;
+    width:100%;
+    height:70px;
+    /* overflow:scroll; */
+}
+.container{
+    width: 100%;
+}
+.codirectText{
+    text-align: center;
+    /* left: 10%; */
+    /* font-size: 60px; */
+    font-size: 4.6vw
+}
+ul#navbarSupportedContent li{
+    display: inline;
+}
+@media screen and (max-width: 641.6px) {
+    .codirectText {
+        font-size: 32.08px;
+    }
+}
+@media screen and (max-width: 381.6px) {
+    .numberBox{
+        width: 182.4px;
+    }
+    .nextButton{
+        width: 55px;
+        height: 26;
+        font-size: 14px;
+    }
+    .textOp{
+        font-size: 14.5px;
+        color: #0c2431;
+        /* padding-left: 40vw; */
+        font-weight: bold;
+    }
+
+
+}
+@media screen and (min-width: 381.7px) {
+    .numberBox{
+        width: 22vw;
+        height: 3vw;
+    }
+    .nextButton{
+        width: calc(55px + 1vw);
+        height: 26+ 1vw;
+        font-size: 14px;
+    }
+    .textOp{
+        font-size: calc(14.5px + 1vw);
+        color: #0c2431;
+        /* padding-left: 40vw; */
+
+        font-weight: bold;
+
+    }
+}
+/* .addDelRows{
+    align-items: center;
+    text-align: center;
+    width:90px;
+    margin:4px ;
+} */
+
+
+/*  */
+*
+{
+    font-family: sans-serif; /* Change your font family */
+  }
+
+  .content-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1.2em;
+    /* min-width: 900px; */
+    /* border-radius: 5px 5px 0 0; */
+    overflow: hidden;
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+  }
+
+  .content-table thead tr :nth-of-type(1),
+  .content-table thead tr :nth-of-type(2),
+  .content-table thead tr :nth-of-type(3)
+   {
+    background-color: #14a0aa;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .content-table th,
+  .content-table td :nth-of-type(1),
+  .content-table td :nth-of-type(2),
+  .content-table td :nth-of-type(3)
+   {
+    padding: 12px 15px;
+    text-align: center;
+    /* width: 0.6324vw; */
+    width: 0.2108%;
+
+  }
+
+  /* .content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
+   */
+    .content-table tbody tr:nth-of-type(even)
+    {
+    /* background-color: #f3f3f3; */
+    text-align: center;
+
+  }
+  .content-table tbody tr:nth-of-type(odd) {
+    /* background-color: #c2b2b2; */
+    text-align: center;
+  }
+
+  /* .content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #ffffff;
+  } */
+
+  .content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #197bb4;
+  }
+
+  .content-table{
+      margin-left: 18vw;
+      margin-top: 94px;
+      /* margin-right: 94px;
+      margin-bottom: 94px; */
+  }
+.empty{
+    color:transparent;
+    width: 10px;
+}
+.myclass{
+    display:inline-block;
+    width: 80px;
+    height: 40px;
+}
+
+.whiteback{
+    background-color:#f3f3f3 ;
+}
+.grayback{
+    background-color: #c2b2b2;
+}
+.blckbg{
+    background-color: black;
+}
+/*
+
+@media screen and (max-width: 628.8px){
+    .content-table2 thead {
+        background-color: #0c2431;
+       font-size: 3vw;
+       font-weight: bold;
+
+    }
+    .content-table2 thead td{
+       color: white;
+       padding-left: 1.5vw;
+       padding-right: 1.5vw;
+       height: 40px;
+   }
+   .content-table2{
+       border-collapse: collapse;
+       margin: 25px 0;
+       font-size: 3vw;
+       border-radius: 10%;
+       overflow: hidden;
+   }
+}
+@media screen and (min-width: 628.9px){
+    .content-table2 thead {
+        background-color: #0c2431;
+       font-size: 18.9;
+       font-weight: bold;
+
+    }
+    .content-table2 thead td{
+       color: white;
+       padding-left: calc(9.024px + 0.3vw);
+       padding-right: calc(9.024px + 0.3vw);
+       height: 40px;
+   }
+   .content-table2{
+       border-collapse: collapse;
+       margin: 25px 0;
+       font-size: 3vw;
+       border-radius: 10%;
+       overflow: hidden;
+   }
+} */
+.content-table2 thead tr{
+    background-color: #0c2431;
+    color: #d5d5d5;
+    height: 40px;
+}
+.headerC{
+    padding-left: calc(20px + 0.1vw);
+    padding-right: calc(20px + 0.1vw);
+    font-size: calc(18px + 0.1vw);
+    height: 40px;
+
+}

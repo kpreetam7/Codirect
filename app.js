@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //===========
 
  app.get("/",function(req,res){
- 	res.render("home");
+ 	res.render("home" ,{status : req.isAuthenticated()});
  });
 
  app.get("/secret",isLoggedIn,function(req,res){
@@ -71,6 +71,10 @@ app.post("/login",passport.authenticate("local",{
 app.get("/logout",function(req,res){
 	req.logout();
 	res.redirect("/");
+});
+
+app.get("/search",function(req,res){
+  res.render("search");
 });
 
 function isLoggedIn(req,res,next){

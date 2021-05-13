@@ -1,5 +1,109 @@
-<h1>This is home Page</h1>
-<li><a href = "/register">register</a></li>
-<li><a href = "/secret">Add Item</a></li>
-<li><a href ="/login">login</a></li>
-<li><a href ="/logout">logout</a></li>
+<!-- <h1>This is home Page</h1>
+<% if(status){ %>
+  <li><a href = "/secret">Add Item</a></li>
+  <li><a href ="/logout">logout</a></li>
+<% }else{ %>
+  <li><a href = "/register">register</a></li>
+  <li><a href ="/login">login</a></li>
+<% } %> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CoDirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="home_style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+          <span class="sr-only"> Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><h2>CoDirect</h2></a>
+      </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse-main">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="#" >About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <!-- <li><a href="Login/index.html">Login</a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="home">
+  <div class="landing-text" id="div0">
+
+    <div class="padding" id="div1">
+        <div class="container" id="div2">
+          <div class="row" id="div3">
+           <div>
+             <h2>Welcome to</h2>
+             <h1> CoDirect </h1>
+          </div>
+           <br>
+           <br>
+            <div class="col-sm-6 text-center">
+                <h2>Resource Searcher</h2>
+                <a href="/search" class="btn btn-default btn-lg">Search</a>
+            </div>
+            <div class="col-sm-6 text-center">
+                <h2>Vendors</h2>
+                <% if(status){ %>
+                  <a href = "/secret" class="btn btn-default btn-lg">Enter</a>
+                  <a href ="/logout" class="btn btn-default btn-lg">logout</a>
+                <% }else{ %>
+                  <a href = "/register" class="btn btn-default btn-lg">register</a>
+                  <a href ="/login" class="btn btn-default btn-lg">login</a>
+                <% } %>
+                <!-- <a href="/SignUp/Signup.html" class="btn btn-default btn-lg">Enter</a> -->
+            </div>
+          </div>
+
+        </div>
+
+        </div>
+        <div>
+        </div>
+      <a class="btn btn-lg wtspButton ">Whatsapp</a>
+      <!-- <a class="fab fa-whatsapp-square">Whatsapp</a> -->
+
+  </div>
+</div>
+
+<footer>
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Contact Us</h3>
+      <br>
+      <h4>Our Address and contact info here.</h4>
+    </div>
+    <div class="col-sm-4">
+      <h3>Connect</h3>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-instagram"></a>
+
+
+
+    </div>
+    <div class="col-sm-4">
+      <h3>CoDirect</h3>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

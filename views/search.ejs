@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Supplier Webpage</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script type="js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="search_style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+		</script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+		</script>
+		<script>
+			// var maxID = 0;
+			// function getTemplateRow() {
+			// 	var x = document.getElementById("templateRow").cloneNode(true);
+			// 	x.id = "";
+			// 	x.style.display = "";
+			// 	x.innerHTML = x.innerHTML.replace(/{id}/, ++maxID);
+			// 	return x;
+			// }
+			// function addRow() {
+			// 	var t = document.getElementById("table1");
+			// 	var rows = t.getElementsByTagName("tr");
+			// 	var r = rows[rows.length - 2];
+			// 	r.parentNode.insertBefore(getTemplateRow(), r);
+			// }
+			// function deleteRow(row){
+			// 	var count = document.getElementById("table1").rows.length;
+			// 	if(count===3){
+			// 		return;
+			// 	}
+			// 	let rowid=row.id
+			// 	var i=row.parentNode.parentNode.rowIndex;
+			// 	document.getElementById('table1').deleteRow(i);
+			// 	var t = document.getElementById("table1");
+			// 	var rows = t.getElementsByTagName("tr");
+			// 	rows[rows.length - 2].id="templateRow";
+			// }
+		</script>
+		<!-- <script type="text/javascript" src="city_state.js"></script> -->
+	</head>
+<body>
+	<!--<div class="container" >
+		<h1 class="codirectText lead";>
+			<span style='color: rgb(247, 135, 7)'>C</span>
+			<span style='color: rgb(247, 135, 7)'>o</span>
+			<span style='color: white'>D</span>
+			<span style='color: rgba(37, 171, 248, 0.815)'>i</span>
+			<span style='color: white'>r</span>
+			<span style='color: rgb(84, 243, 10)'>e</span>
+			<span style='color: rgb(84, 243, 10)'>c</span>
+			<span style='color: rgb(84, 243, 10)'>t</span>
+		</h1>
+	</div>-->
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+              <span class="sr-only"> Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><h2>CoDirect</h2></a>
+          </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-main">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="#" >About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <!-- <li><a href="#">Login</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<br>
+<br>
+<br>
+<br>
+	<div  style="padding-top:60px; padding-left: 40vw;">
+
+        <!-- <input type="text" placeholder="Enter location where resources are needed" class="numberBox"><br><br> -->
+		<h1 class="textOp">Choose the resources needed:</h1>
+        <input type="checkbox" style="padding-left: 12"><label style="color: #0c2431">Oxygen</label><br>
+        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Remdevisir</label><br>
+        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Beds</label><br>
+        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">ICU</label><br>
+        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">ECU</label><br>
+        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Ventilators</label><br>
+        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Empty oxygen cylinders</label><br>
+        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Refilling oxygen</label>
+		<!-- <button class="nextButton">Submit</button> -->
+	</div>
+	<div style="padding-top:60px; padding-left: 40vw;">
+		<h1 class="textOp">Select city:</h1>
+		<select style="width: 200px; height: 30px;" id="citiesDropdown"></select>
+		<script>
+			$.getJSON("cities.json",
+				function (data) {
+					select=document.getElementById('citiesDropdown');
+					$.each(data, function (key, value) {
+						var opt = document.createElement('option');
+						opt.value = value.city;
+						opt.innerHTML = value.city;
+						select.appendChild(opt);
+						});
+
+						//INSERTING ROWS INTO TABLE
+						// $('#table').append(student);
+
+					});
+		</script>
+		<br>
+		<br>
+		<button class="nextButton">Submit</button>
+	</div>
+	<!-- <div align="center" style="padding-top:60px"> -->
+	<div style="padding-top:60px;">
+		<h1 class="textOp" style=" padding-left: 40vw;">Results:</h1>
+		<table id="queryResults" align="center" class="content-table2" >
+			<thead>
+				<tr>
+					<td class="headerC">Resources</td>
+					<td class="headerC">Supplier Name</td>
+					<td class="headerC">Supplier Location</td>
+					<td class="headerC">Contact</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="headerC">Oxygen</td>
+					<td class="headerC">Supplier 1</td>
+					<td class="headerC">Location1 </td>
+					<td class="headerC">1</td>
+				</tr>
+				<tr>
+					<td class="headerC">Beds</td>
+					<td class="headerC">Supplier 2</td>
+					<td class="headerC">Location2 </td>
+					<td class="headerC">2</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

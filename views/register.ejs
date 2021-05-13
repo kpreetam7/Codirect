@@ -1,6 +1,57 @@
-<h1>sign up form<h1>
+<!-- <h1>sign up form<h1>
 <form action="/register" method="POST">
 <input type="text" name = "username" placeholder="USE PHONE NO.">
 <input type = "password" name = "password" placeholder = "password">
 <button>Submit</button>
-</form>
+</form> -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <title>CoDirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="login_style.css" rel="stylesheet" />
+  <link href="navbar.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+            <span class="sr-only"> Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html"><h2>CoDirect</h2></a>
+        </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-main">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <!-- <li><a href="/Login/index.html">Login</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="login-box">
+  <h1>Details</h1>
+  <form action="/register" method="POST">
+      <div class="textbox">
+        <i class="fas fa-phone"></i>
+        <input type= "text" name = "username" placeholder="PHONE NO.">
+      </div>
+      <div class="textbox">
+        <i class="fas fa-lock"></i>
+        <input type= "password" name = "password" placeholder="Password">
+      </div>
+      <button  class="btn">submit</button>
+  </form>
+</div>
+  </body>
+</html>

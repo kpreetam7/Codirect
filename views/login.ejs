@@ -1,79 +1,50 @@
-<!-- <h1>this is login page</h1>
-<form action="/login" method="POST">
-	<input type= "text" name = "username" placeholder="USE PHONE NO.">
-	<input type= "password" name = "password" placeholder="password">
-	<button>submit</button>
-</form> -->
-
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Supplier Webpage</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script type="js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<link rel="stylesheet" href="login_css.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-		</script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
-		</script>
-		<script>
-			var maxID = 0;
-			function getTemplateRow() {
-				var x = document.getElementById("templateRow").cloneNode(true);
-				x.id = "";
-				x.style.display = "";
-				x.innerHTML = x.innerHTML.replace(/{id}/, ++maxID);
-				return x;
-			}
-			function addRow() {
-				var t = document.getElementById("table1");
-				var rows = t.getElementsByTagName("tr");
-				var r = rows[rows.length - 2];
-				r.parentNode.insertBefore(getTemplateRow(), r);
-			}
-			function deleteRow(row){
-				var count = document.getElementById("table1").rows.length;
-				if(count===3){
-					return;
-				}
-				let rowid=row.id
-				var i=row.parentNode.parentNode.rowIndex;
-				document.getElementById('table1').deleteRow(i);
-				var t = document.getElementById("table1");
-				var rows = t.getElementsByTagName("tr");
-				rows[rows.length - 2].id="templateRow";
-			}
-		</script>
-	</head>
-<body>
-	<div class="container" >
-		<h1 class="codirectText lead";>
-			<span style='color: rgb(247, 135, 7)'>C</span>
-			<span style='color: rgb(247, 135, 7)'>o</span>
-			<span style='color: white'>D</span>
-			<span style='color: rgba(37, 171, 248, 0.815)'>i</span>
-			<span style='color: white'>r</span>
-			<span style='color: rgb(84, 243, 10)'>e</span>
-			<span style='color: rgb(84, 243, 10)'>c</span>
-			<span style='color: rgb(84, 243, 10)'>t</span>
-		</h1>
-	</div>
-	<!-- <div align="center" style="padding:60px ">
+<html lang="en" dir="ltr">
+  <title>CoDirect</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="login_style.css" rel="stylesheet" />
+  <link href="navbar.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://m.w3newbie.com/you-tube.css">
+  <body>
 
-        <input type="text" placeholder="Enter your phone number" class="numberBox"><br><br>
-        <input type="text" placeholder="Enter your password" class="numberBox"><br><br>
-
-        <button class="nextButton">Next</button>
-	</div> -->
-	<div align="center" style="padding:60px ">
-		<form action="/login" method="POST">
-			<input type= "text" name = "username" placeholder="USE PHONE NO." class="numberBox"><br><br>
-			<input type= "password" name = "password" placeholder="password" class="numberBox"><br><br>
-			<button class="nextButton">submit</button>
-		</form>
-	</div>
-</body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+            <span class="sr-only"> Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index.html"><h2>CoDirect</h2></a>
+        </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-main">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="active" href="/">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <!-- <li><a href="/Login/index.html">Login</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+<div class="login-box">
+  <h1>Details</h1>
+  <form action="/login" method="POST">
+      <div class="textbox">
+        <i class="fas fa-phone"></i>
+        <input type= "text" name = "username" placeholder="PHONE NO.">
+      </div>
+      <div class="textbox">
+        <i class="fas fa-lock"></i>
+        <input type= "password" name = "password" placeholder="Password">
+      </div>
+      <button  class="btn">submit</button>
+  </form>
+</div>
+  </body>
 </html>
