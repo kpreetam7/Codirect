@@ -53,7 +53,7 @@ app.post('/secret',isLoggedIn,function(req,res){
       amount : req.body.amount2,
       city : req.body.city2,
       location : req.body.location2,
-      owner_id : req.user._i3
+      owner_id : req.user._id
     };
     var data3 = {
       type : req.body.type3 ,
