@@ -83,23 +83,24 @@
 <br>
 <br>
 <br>
+  <form action="/search" method="POST">
 	<div  style="padding-top:60px; padding-left: 40vw;">
 
         <!-- <input type="text" placeholder="Enter location where resources are needed" class="numberBox"><br><br> -->
 		<h1 class="textOp">Choose the resources needed:</h1>
-        <input type="checkbox" style="padding-left: 12"><label style="color: #0c2431">Oxygen</label><br>
-        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Remdevisir</label><br>
-        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Beds</label><br>
-        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">ICU</label><br>
-        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">ECU</label><br>
-        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Ventilators</label><br>
-        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Empty oxygen cylinders</label><br>
-        <input type="checkbox" style="padding-left: 12"><label  style="color: #0c2431">Refilling oxygen</label>
+        <input type="checkbox" style="padding-left: 12" name = "data[]" value ="Oxygen"><label style="color: #0c2431">Oxygen</label><br>
+        <input type="checkbox" style="padding-left: 12" name = "data[]" value ="Remdesivir"><label  style="color: #0c2431">Remdevisir</label><br>
+        <input type="checkbox" style="padding-left: 12" name = "data[]" value ="Bed"><label  style="color: #0c2431">Beds</label><br>
+        <input type="checkbox" style="padding-left: 12" name = "data[]" value ="ICU"><label  style="color: #0c2431">ICU</label><br>
+        <!-- <input type="checkbox" style="padding-left: 12" name = "" value =""><label  style="color: #0c2431">ECU</label><br>
+        <input type="checkbox" style="padding-left: 12" name = "" value =""><label  style="color: #0c2431">Ventilators</label><br>
+        <input type="checkbox" style="padding-left: 12" name = "" value =""><label  style="color: #0c2431">Empty oxygen cylinders</label><br>
+        <input type="checkbox" style="padding-left: 12" name = "" value =""><label  style="color: #0c2431">Refilling oxygen</label> -->
 		<!-- <button class="nextButton">Submit</button> -->
 	</div>
 	<div style="padding-top:60px; padding-left: 40vw;">
 		<h1 class="textOp">Select city:</h1>
-		<select style="width: 200px; height: 30px;" id="citiesDropdown"></select>
+		<select style="width: 200px; height: 30px;" id="citiesDropdown" name ="city"></select>
 		<script>
 			$.getJSON("cities.json",
 				function (data) {
@@ -118,35 +119,41 @@
 		</script>
 		<br>
 		<br>
-		<button class="nextButton">Submit</button>
+		<button class="btn" class="nextButton" >Submit</button>
 	</div>
+</form>
 	<!-- <div align="center" style="padding-top:60px"> -->
 	<div style="padding-top:60px;">
-		<h1 class="textOp" style=" padding-left: 40vw;">Results:</h1>
-		<table id="queryResults" align="center" class="content-table2" >
-			<thead>
-				<tr>
-					<td class="headerC">Resources</td>
-					<td class="headerC">Supplier Name</td>
-					<td class="headerC">Supplier Location</td>
-					<td class="headerC">Contact</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td class="headerC">Oxygen</td>
-					<td class="headerC">Supplier 1</td>
-					<td class="headerC">Location1 </td>
-					<td class="headerC">1</td>
-				</tr>
-				<tr>
-					<td class="headerC">Beds</td>
-					<td class="headerC">Supplier 2</td>
-					<td class="headerC">Location2 </td>
-					<td class="headerC">2</td>
-				</tr>
-			</tbody>
-		</table>
+		<h2 class="textOp" style=" padding-left: 40vw;">Results:</h2>
+    <% results.forEach(function(Resource){ %>
+      <hr style="height:1px; border:none; color:#000; background-color:#000; width:60%; text-align:center; margin: 0 auto;">
+      <h1 class="textOp" style=" padding-left: 40vw;"> <%= Resource[0].type%> : </h1>
+      <table id="queryResults" align="center" class="content-table2" >
+        <thead>
+          <tr>
+            <td class="headerC">Location</td>
+            <td class="headerC">Quantity</td>
+            <td class="headerC">Contact No.</td>
+            <td class="headerC">Verified</td>
+          </tr>
+        </thead>
+        <tbody>
+    <%  Resource.forEach(function(supplier){ %>
+
+          <tr>
+            <td class="headerC"> <%=supplier.location %></td>
+            <td class="headerC"> <%=supplier.amount %></td>
+            <td class="headerC"> <%=supplier.owner_id.username %> </td>
+           <% if(supplier.owner_id.isValid){ %>
+                <td class="headerC" style= "color : green;"> Yes </td>
+            <%  }else{ %>
+                <td class="headerC" style= "color : red;"> No </td>
+            <%  }%>
+          </tr>
+  <%    });  %>
+  </tbody>
+  </table>
+  <%  });   %>
 	</div>
 </body>
 </html>
