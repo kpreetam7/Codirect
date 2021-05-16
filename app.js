@@ -31,12 +31,21 @@ app.use(bodyParser.urlencoded({extended: true}));
 //===========
 
 app.get("/",function(req,res){
- res.render("home" ,{status : req.isAuthenticated()});
+  res.render("home" ,{status : req.isAuthenticated()});
 });
 
 app.get("/secret",isLoggedIn,function(req,res){
-  console.log(req.user);
- 	res.render("secret");
+  //console.log(req.user);
+  Resource.find({owner_id : req.user._id} , function(err, result) {
+    if (err){
+      console.log("error in finding result");
+      res.render("secret" , {result : []});
+    }
+    else{
+      console.log(result);
+      res.render("secret" , {result : result});
+    }
+  });
 });
 
 app.post('/secret',isLoggedIn,function(req,res){
@@ -69,47 +78,168 @@ app.post('/secret',isLoggedIn,function(req,res){
       location : req.body.location4,
       owner_id : req.user._id
     };
+    var data5 = {
+      type : req.body.type5 ,
+      amount : req.body.amount5,
+      city : req.body.city5,
+      location : req.body.location5,
+      owner_id : req.user._id
+    };
+    var data6 = {
+      type : req.body.type6 ,
+      amount : req.body.amount6,
+      city : req.body.city6,
+      location : req.body.location6,
+      owner_id : req.user._id
+    };
+    var data7 = {
+      type : req.body.type7 ,
+      amount : req.body.amount7,
+      city : req.body.city7,
+      location : req.body.location7,
+      owner_id : req.user._id
+    };
+    var data8 = {
+      type : req.body.type8 ,
+      amount : req.body.amount8,
+      city : req.body.city8,
+      location : req.body.location8,
+      owner_id : req.user._id
+    };
+    var data9 = {
+      type : req.body.type9 ,
+      amount : req.body.amount9,
+      city : req.body.city9,
+      location : req.body.location9,
+      owner_id : req.user._id
+    };
+    var data10 = {
+      type : req.body.type10 ,
+      amount : req.body.amount10,
+      city : req.body.city10,
+      location : req.body.location10,
+      owner_id : req.user._id
+    };
 
-    Resource.create(data1 , function(err , data){
-      if(err){
-          console.log('we have a error');
-          res.redirect("/");
-        }
-        else{
-          console.log(data);
-          Resource.create(data2 , function(err , data){
-            if(err){
-                console.log('we have a error');
-                res.redirect("/");
+    var data_arr = [data1 , data2 ,data3 , data4 , data5 , data6 , data7 , data8 , data9 ,data10];
+    var count = 0;
+    data_arr.forEach(function(data){
+      Resource.find({type : data.type , owner_id : req.user._id} , function(err , val){
+        if(val.length == 0){ // doesnt exist in database
+          if(data.amount != ""  && data.amount != "0"){
+            Resource.create(data , function(err , val){
+                if(err){
+                  console.log(err);
+                  res.redirect('/');
+                }else{
+                  console.log(val);
+                  if(count == data_arr.length-1){
+                    res.redirect("/secret");
+                  }
+                  count++;
+                }
+              });
+          }else{
+            if(count == data_arr.length - 1){
+              res.redirect("/secret");
+            }
+            count++;
+          }
+        }else{ // it already exist in database
+          if(data.amount == "" || data.amount == "0"){
+            Resource.deleteMany({type : data.type , owner_id : req.user._id},function(err,obj){
+              if(err){
+                console.log(err);
+                res.redirect("/secret");
               }
-              else{
-                console.log(data);
-
-                Resource.create(data3 , function(err , data){
-                  if(err){
-                      console.log('we have a error');
-                      res.redirect("/");
-                    }
-                    else{
-                      console.log(data);
-
-                      Resource.create(data4 , function(err , data){
-                        if(err){
-                            console.log('we have a error');
-                            res.redirect("/");
-                          }
-                          else{
-                            console.log(data);
-
-                            res.redirect("/");
-                          }
-                      });
-                    }
-                });
+              console.log("doc deleted");
+              if(count == data_arr.length - 1){
+                res.redirect("/secret");
               }
-          });
+              count++;
+            });
+          }else{
+            var myquery = { type : data.type , owner_id : req.user._id };
+            var newvalues = { $set: {type : data.type, amount : data.amount , city : data.city , location : data.location , owner_id : data.owner_id } };
+            Resource.updateOne(myquery, newvalues, function(err,obj) {
+              if (err) {
+                console.log(err);
+                res.redirect("/secret");
+              }
+              console.log("1 document updated");
+              if(count == data_arr.length - 1){
+                res.redirect("/secret");
+              }
+              count++;
+            });
+          }
         }
+      });
     });
+
+
+
+    // if(data.amount != "" ){
+    //   Resource.create(data , function(err , val){
+    //     if(err){
+    //       console.log(err);
+    //       res.redirect('/');
+    //     }else{
+    //       console.log(val);
+    //       if(count == data_arr.length-1){
+    //         res.redirect("/secret");
+    //       }
+    //     }
+    //   });
+    // }else{
+    //   if(count == data_arr.length -1){
+    //     res.redirect("/secret");
+    //   }
+    // }
+    // count++;
+
+
+
+    //
+    // Resource.create(data1 , function(err , data){
+    //   if(err){
+    //       console.log('we have a error');
+    //       res.redirect("/");
+    //     }
+    //  else{
+    //       console.log(data);
+    //       Resource.create(data2 , function(err , data){
+    //         if(err){
+    //             console.log('we have a error');
+    //             res.redirect("/");
+    //           }
+    //        else{
+    //             console.log(data);
+    //
+    //             Resource.create(data3 , function(err , data){
+    //               if(err){
+    //                   console.log('we have a error');
+    //                   res.redirect("/");
+    //              }
+    //                 else{
+    //                   console.log(data);
+    //
+    //                   Resource.create(data4 , function(err , data){
+    //                     if(err){
+    //                         console.log('we have a error');
+    //                         res.redirect("/");
+    //                       }
+    //                       else{
+    //                         console.log(data);
+    //                         res.redirect("/");
+    //                       }
+    //                   });
+    //                 }
+    //             });
+    //           }
+    //       });
+    //     }
+    // });
 
 
   // var newResource = {
