@@ -7,7 +7,7 @@ passportLocalMongoose = require("passport-local-mongoose"),
 Resource = require("./models/resource"),
 User = require("./models/user");
 
-mongoose.connect("mongodb+srv://shreshth1234:shreshth1234@cluster0.m3big.mongodb.net/auth?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://@cluster0.m3big.mongodb.net/auth?retryWrites=true&w=majority");
 
  var app = express();
  app.set('view engine','ejs');
